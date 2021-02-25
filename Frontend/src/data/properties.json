@@ -1,38 +1,50 @@
 [
   {
     "Id":1,
+    "SellRent":1,
     "Name":"Birla House",
     "Type":"House",
-    "Price":12000
+    "Price":12000,
+    "Image":"post1.jpg"
   },
   {
     "Id":2,
+    "SellRent":2,
     "Name":"shop House",
     "Type":"House",
-    "Price":12000
+    "Price":12000,
+    "Image":"post2.jpg"
   },
   {
     "Id":3,
+    "SellRent":1,
     "Name":"mart House",
     "Type":"House",
-    "Price":12000
+    "Price":12000,
+    "Image":"post3.jpg"
   },
   {
     "Id":4,
+    "SellRent":1,
     "Name":"sport House",
     "Type":"House",
-    "Price":12000
+    "Price":12000,
+    "Image":"post4.jpg"
   },
   {
     "Id":5,
+    "SellRent":2,
     "Name":"vila House",
     "Type":"House",
-    "Price":12000
+    "Price":12000,
+    "Image":"post5.jpg"
   },
   {
     "Id":6,
+    "SellRent":1,
     "Name":"Birla House",
     "Type":"House",
-    "Price":12000
+    "Price":12000,
+    "Image":"post6.jpg"
   }
 ]
