@@ -11,9 +11,12 @@ import { NgForm } from '@angular/forms';
 export class AddPropertyComponent implements OnInit {
 
   @ViewChild('Form') addPropertyForm: NgForm;
+  SellRent = '1';
   constructor(private router : Router) { }
 
   ngOnInit() {
+    setTimeout(() => {
+    this.addPropertyForm.controls['Name'].setValue('Default value')},1000);
   }
 
   onBack(){
