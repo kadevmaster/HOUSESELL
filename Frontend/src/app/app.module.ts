@@ -16,8 +16,11 @@ import { Routes, RouterModule } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, Component } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { from } from "rxjs";
+import { AuthService } from "./services/auth.service";
 
 
 const appRoutes: Routes = [
@@ -63,11 +66,14 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot()
   ],
   providers:
   [HousingService,
   UserServiceService,
-  AlertifyService
+  AlertifyService,
+  AuthService
   ],
   bootstrap: [AppComponent],
 })
