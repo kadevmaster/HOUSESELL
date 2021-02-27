@@ -9,12 +9,16 @@ import { NavBarComponent } from "./nav-bar/nav-bar.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { HousingService } from "./services/housing.service";
+import { UserServiceService } from "./services/user-service.service";
+import { AlertifyService } from './services/alertify.service';
+
 import { Routes, RouterModule } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, Component } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 
 import { from } from "rxjs";
+
 
 const appRoutes: Routes = [
   {
@@ -60,7 +64,11 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [HousingService],
+  providers:
+  [HousingService,
+  UserServiceService,
+  AlertifyService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
