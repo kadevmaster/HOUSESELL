@@ -1,7 +1,7 @@
 import { UserRegisterComponent } from "./user/user-register/user-register.component";
 import { UserLoginComponent } from "./user/user-login/user-login.component";
 import { PropertyDetailComponent } from "./property/Property-Detail/Property-Detail.component";
-import { AddPropertyComponent } from "./property/AddProperty/AddProperty.component";
+import { AddPropertyComponent } from "./property/add-Property/add-property.component";
 import { AppComponent } from "./app.component";
 import { PropertyCardComponent } from "./property/property-card/property-card.component";
 import { PropertyListComponent } from "./property/property-list/property-list.component";
