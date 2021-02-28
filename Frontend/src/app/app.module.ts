@@ -27,30 +27,14 @@ import { AuthService } from "./services/auth.service";
 
 
 const appRoutes: Routes = [
-  {
-    path: "",
-    component: PropertyListComponent,
-  },
-  {
-    path: "add-property",
-    component: AddPropertyComponent,
-  },
-  {
-    path: "rent-property",
-    component: PropertyListComponent,
-  },
-  {
-    path: "property-detail/:id",
-    component: PropertyDetailComponent,
-  },
-  {
-    path: "user/login",
-    component: UserLoginComponent,
-  },
-  {
-    path: "user/register",
-    component: UserRegisterComponent,
-  },
+  {path: "", component: PropertyListComponent,},
+  {path: "add-property",component: AddPropertyComponent,},
+  {path: "rent-property",component: PropertyListComponent,},
+  {path: "property-detail/:id",component: PropertyDetailComponent,},
+  {path: "user/login",component: UserLoginComponent,},
+  {path: "user/register",component: UserRegisterComponent,},
+  {path: '**', component: PropertyListComponent}
+
 ];
 @NgModule({
   declarations: [

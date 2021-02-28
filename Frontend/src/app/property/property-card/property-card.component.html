@@ -4,7 +4,7 @@
     <img *ngIf="!property.Image" class="card-img-top" src="assets/images/default.jpg">
     <ul *ngIf="!hideIcons" class="list-inline text-center member-icons">
       <li class="list-inline-item">
-        <button class="bnt btn-primary" routerLink="property-detail/{{property.Id}}"><i class="far fa-edit"></i></button>
+        <button class="bnt btn-primary" routerLink="/property-detail/{{property.Id}}"><i class="far fa-edit"></i></button>
       </li>
       <li class="list-inline-item">
         <button class="bnt btn-primary"><i class="far fa-address-book"></i></button>
