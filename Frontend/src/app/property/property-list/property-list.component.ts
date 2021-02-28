@@ -21,13 +21,12 @@ export class PropertyListComponent implements OnInit {
     }
 
     this.housingService.getAllProperties(this.SellRent).subscribe(
-      (data) => {
-        this.properties = data;
-
-        console.log(data);
-      },
-      error =>{console.error(error);
-      }
-      );
+      data => {
+      this.properties = data;
+      console.log(data);
+    }, error => {
+      console.log('httperror:');
+      console.log(error);
+    })
   }
 }
