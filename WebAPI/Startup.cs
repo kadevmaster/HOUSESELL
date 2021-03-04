@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using WebAPI.Data;
+using WebAPI.Helpers;
 using WebAPI.Interfaces;
 
 namespace WebAPI
@@ -31,6 +32,7 @@ namespace WebAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
             });
             services.AddCors();
+            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
