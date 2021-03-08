@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Dtos;
 using WebAPI.Interfaces;
@@ -32,19 +33,6 @@ namespace WebAPI.Controllers
              return Ok(citiesDto);
         }
 
-        // Post api/City/add?cityName = Da Nang
-        // Post api/City/add/Da Nang
-        [HttpPost("add")]
-        [HttpPost("add/{cityname}")]
-        public async Task<IActionResult>  AddCity(string cityName)
-        {
-            var city = new City();
-            city.Name = cityName;
-            uow.CityRepository.AddCity(city);
-            await uow.SaveAsync();
-            return StatusCode(201);
-        }
-
         // Post api/City/Post/ ----post the data in JSON format
         [HttpPost("post")]
         public async Task<IActionResult>  AddCity(CityDto cityDto)
@@ -53,6 +41,31 @@ namespace WebAPI.Controllers
             city.LastUpdatedOn = DateTime.Now;
             city.LastUpdatedBy = 1;
              uow.CityRepository.AddCity(city);
+            await uow.SaveAsync();
+            return StatusCode(201);
+        }
+
+        // Update api/City/Update/ ----Update the data in JSON format
+        [HttpPut("update/{Id}")]
+        public async Task<IActionResult>  UpdateCity( int id,CityDto cityDto)
+        {
+            var cityFromDB = await uow.CityRepository.FindCity(id);
+            cityFromDB.LastUpdatedBy = 1;
+            cityFromDB.LastUpdatedOn = DateTime.Now;
+            mapper.Map(cityDto,cityFromDB);
+            await uow.SaveAsync();
+            return StatusCode(201);
+        }
+
+        // Update api/City/Update/ ----Update the data in JSON format
+        [HttpPatch("update/{Id}")]
+        public async Task<IActionResult>  UpdateCityPatch( int id, JsonPatchDocument<City> cityPatch)
+        {
+            var cityFromDB = await uow.CityRepository.FindCity(id);
+            cityFromDB.LastUpdatedBy = 1;
+            cityFromDB.LastUpdatedOn = DateTime.Now;
+
+            cityPatch.ApplyTo(cityFromDB, ModelState);
             await uow.SaveAsync();
             return StatusCode(201);
         }
